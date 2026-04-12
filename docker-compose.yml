@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: fashionstore_web
+    ports:
+      - "5001:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://admin:admin1234@cluster0.9p6bn71.mongodb.net/fashionstore?appName=Cluster0
+      - JWT_SECRET=fashionstore123
+      - PORT=5000
+    volumes:
+      - app_data:/app/uploads
+    restart: always
+
+volumes:
+  app_data:
